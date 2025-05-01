@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.rb_todo -> mViewPager.currentItem = 0
                 R.id.rb_ask -> mViewPager.currentItem = 1
                 R.id.rb_setting -> mViewPager.currentItem = 2
-
             }
         }
     }
@@ -70,11 +69,6 @@ class MainActivity : AppCompatActivity() {
                         tab1.isChecked = false
                         tab2.isChecked = false
                         tab3.isChecked = true
-                    }
-                    3 -> {
-                        tab1.isChecked = false
-                        tab2.isChecked = false
-                        tab3.isChecked = false
                     }
                 }
             }

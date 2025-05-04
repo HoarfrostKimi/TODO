@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_todo"
+        android:title="待办"
+        android:icon="@drawable/todo_ready"/>
+    <item
+        android:id="@+id/menu_focus"
+        android:title="番茄"
+        android:icon="@drawable/focus_ready"/>
+    <item
+        android:id="@+id/menu_setting"
+        android:title="设置"
+        android:icon="@drawable/setting_ready"/>
+</menu>

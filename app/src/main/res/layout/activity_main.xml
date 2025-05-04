@@ -1,60 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.activity.MainActivity">
 
-    <com.example.todo.NoSwipeableViewPager
-        android:id="@+id/viewpager"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation_main"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/main_menu" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp2_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <RadioGroup
-            android:id="@+id/rg_tab"
-            android:layout_width="fill_parent"
-            android:layout_height="43dp"
-            android:gravity="center_vertical"
-            android:layout_alignParentBottom="true"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_todo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:checked="true"
-                android:drawableTop="@drawable/select_todo"
-                android:gravity="center"
-                android:paddingLeft="0dp"
-                 />
-
-            <RadioButton
-                android:id="@+id/rb_ask"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:checked="false"
-                android:drawableTop="@drawable/select_ask"
-                android:gravity="center"
-                android:paddingLeft="0dp"
-                 />
-            <RadioButton
-                android:id="@+id/rb_setting"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:checked="false"
-                android:drawableTop="@drawable/select_setting"
-                android:gravity="center"
-                android:paddingLeft="0dp"
-                 />
-        </RadioGroup>
-
-
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

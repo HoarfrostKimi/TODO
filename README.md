@@ -65,12 +65,12 @@
 ## 📷 项目截图
 -
  登录界面
-![演示](docs/picture/login.gif)
+![login](picture/login.gif)
 -
  添加任务界面
- ![演示](docs/picture/todo.gif)
+ ![todo](picture/todo.gif)
 -
   自定义番茄钟界面
- ![演示](docs/picture/tomato.gif)
+ ![tomato](picture/tomato.gif)
 -
 

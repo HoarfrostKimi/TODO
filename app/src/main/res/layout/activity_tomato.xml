@@ -37,9 +37,9 @@
         android:layout_below="@id/motivation2TextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="90dp"
-        android:textSize="70sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        android:textStyle="bold" />
 
     <!-- 添加停止按钮 -->
     <Button

@@ -3,11 +3,12 @@ package com.example.todo.model.database
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.todo.model.bean.User
 import com.example.todo.model.bean.Todo
+import com.example.todo.model.bean.User
+import com.example.todo.model.database.UserDao
 import com.example.todo.utils.Base
 
-@Database(version = 1, entities = [User::class, Todo::class])
+@Database(version = 1, entities = [User::class, Todo::class], exportSchema = false)
 abstract class AppDataBase : RoomDatabase() {
 
     abstract fun userDao() : UserDao

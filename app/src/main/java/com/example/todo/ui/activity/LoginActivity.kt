@@ -3,6 +3,7 @@ package com.example.todo.ui.activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
@@ -12,6 +13,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import com.example.todo.R
+import com.example.todo.ui.fragment.TodoFragment
 import com.example.todo.viewmodel.LoginViewModel
 import com.google.android.material.textfield.TextInputLayout
 
@@ -70,9 +72,10 @@ class LoginActivity:AppCompatActivity() {
             }
         }
         //TODO:实现登录操作
-        viewmodel.livedataLoginId.observe(this) { id ->
-            if (id == -1) {
-                // 使用 AlertDialog 替代 showDialog 扩展函数
+        // LoginActivity.kt
+        viewmodel.livedataLoginId.observe(this) { userId ->
+            if (userId == -1) {
+                // 登录失败处理
                 android.app.AlertDialog.Builder(this)
                     .setTitle("登录失败")
                     .setMessage("账号/密码错误")
@@ -82,13 +85,15 @@ class LoginActivity:AppCompatActivity() {
                     }
                     .show()
             } else {
-                // 使用 Toast 替代 showToast 扩展函数
+                // 登录成功处理
                 Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                intent.putExtra("userId", id)
+                intent.putExtra("userId", userId)
+
+                Log.d("LoginActivity", "传递的用户 ID: $userId") // 打印日志确认传递的用户 ID
                 startActivity(intent)
-                finish() // 结束登录页面，防止返回
+                finish()
             }
         }
 

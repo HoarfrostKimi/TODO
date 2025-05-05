@@ -37,9 +37,13 @@ interface UserDao {
     //删除todo
     @Delete
     fun deleteTodo(todo:Todo) : Single<Int>
-    //查找所有todo
-    @Query("select * from TODO  where user_id = :userId order by  top, finish, id")
-    fun loadAllParentTask(userId: Int) : Flowable<List<Todo>>
+    // 查找所有已完成的任务
+
+
+        // 定义 loadAllTodo 方法，这里假设查找所有任务
+    @Query("SELECT * FROM TODO WHERE user_id = :userId ORDER BY top, finish, id")
+        fun loadAllTodo(userId: Int): Flowable<List<Todo>>
+
 
 
 }

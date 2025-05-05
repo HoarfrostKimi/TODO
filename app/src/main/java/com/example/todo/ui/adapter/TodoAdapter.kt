@@ -9,12 +9,14 @@ import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todo.R
 import com.example.todo.model.bean.Todo
-import java.util.Collections
 
 class TodoAdapter(private val todoList: MutableList<Todo>) : RecyclerView.Adapter<TodoAdapter.ViewHolder>(), ItemTouchMoveListener {
     interface OnItemClickListener {
         fun onCheckStatusChanged(todo: Todo)
         fun onTodoDelete(todo: Todo)
+    }
+    fun getTodoList(): MutableList<Todo> {
+        return todoList
     }
 
     var itemClickListener: OnItemClickListener? = null
@@ -60,16 +62,16 @@ class TodoAdapter(private val todoList: MutableList<Todo>) : RecyclerView.Adapte
     }
 
     override fun onItemMove(fromPosition: Int, toPosition: Int): Boolean {
-        Collections.swap(todoList, fromPosition, toPosition)
+        todoList.add(toPosition, todoList.removeAt(fromPosition))
         notifyItemMoved(fromPosition, toPosition)
-
-        return false
+        return true
     }
 
     override fun onItemDissmiss(position: Int): Boolean {
+        val todo = todoList[position]
         todoList.removeAt(position)
-
         notifyItemRemoved(position)
+        itemClickListener?.onTodoDelete(todo)
         return true
     }
 }

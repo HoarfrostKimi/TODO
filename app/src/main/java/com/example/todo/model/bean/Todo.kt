@@ -11,7 +11,8 @@ data class Todo(
     @ColumnInfo(name = "user_id")
     var userId: Int,
     @PrimaryKey(autoGenerate = true)
-    var id: Int = 0
+    var id: Int = 0,
+    val top: Int // 添加 top 字段
 ){
     //完成为0,未完成为1
     var finish: Int = 0

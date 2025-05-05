@@ -37,6 +37,10 @@ class TodoAdapter(private val todoList: MutableList<Todo>) : RecyclerView.Adapte
                     if (isChecked) {
                         title.text = HtmlCompat.fromHtml("<s>${task.title}</s>", HtmlCompat.FROM_HTML_MODE_LEGACY)
                         story.text = HtmlCompat.fromHtml("<s>${task.desc}</s>", HtmlCompat.FROM_HTML_MODE_LEGACY)
+                        val position = adapterPosition
+                        if (position != RecyclerView.NO_POSITION) {
+                            moveItemToLast(position)
+                        }
                     } else {
                         title.text = task.title
                         story.text = task.desc
@@ -73,5 +77,12 @@ class TodoAdapter(private val todoList: MutableList<Todo>) : RecyclerView.Adapte
         notifyItemRemoved(position)
         itemClickListener?.onTodoDelete(todo)
         return true
+    }
+    fun moveItemToLast(fromPosition: Int) {
+        if (fromPosition < todoList.size - 1) {
+            val item = todoList.removeAt(fromPosition)
+            todoList.add(item)
+            notifyItemMoved(fromPosition, todoList.size - 1)
+        }
     }
 }

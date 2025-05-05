@@ -1,4 +1,4 @@
-# 🌟 五一考核待办事项 App
+🌟 五一考核待办事项 App
 
 > 一个基于 Kotlin + MVVM 架构开发的简洁高效的待办事项类 Android App。功能包括用户登录、待办管理、番茄钟，以及数据持久化和流畅交互体验。
 
@@ -65,10 +65,12 @@
 ## 📷 项目截图
 -
  登录界面
- 
+![演示](docs/picture/login.gif)
 -
  添加任务界面
+ ![演示](docs/picture/todo.gif)
 -
- 待办事项展示页
+  自定义番茄钟界面
+ ![演示](docs/picture/tomato.gif)
 -
- 自定义番茄钟界面
+
